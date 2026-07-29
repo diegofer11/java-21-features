@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
 
-public class SegmentacionAvanzada {
+public class CustomerSegmentation {
 
 	/**
 	 * A partir de la lista de clientes, genera un mapa de tipo: Map<CustomerType, List<Customer Map<Boolean,>>> Regla:

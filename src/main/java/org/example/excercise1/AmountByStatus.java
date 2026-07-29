@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
 
-public class MontosEstado {
+public class AmountByStatus {
 
 	/**
 	 * Recibe una lista de objetos Order y obtén un mapa (Map<OrderStatus, Double>) donde la llave sea el estado del

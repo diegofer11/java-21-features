@@ -10,7 +10,7 @@ import java.util.logging.Level;
 
 import org.example.model.HedgedRequestData;
 
-public class HedgeRequests {
+public class HedgedRequests {
 
 	/**
 	 * Imagina un sistema financiero que consulta la cotización de Bitcoin en tres réplicas o servidores distintos para

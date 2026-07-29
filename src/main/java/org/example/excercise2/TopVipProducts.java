@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
 
-public class OrdenesVip {
+public class TopVipProducts {
 
 	/**
 	 * Dada una lista de objetos Customer: Filtra únicamente a los clientes de tipo VIP. De sus órdenes, toma solo las

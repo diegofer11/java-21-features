@@ -4,7 +4,7 @@ import static org.example.utils.OrderUtils.LOG;
 
 import org.example.model.OrderData;
 
-public class SwitchPattern {
+public class PatternMatchingSwitch {
 	public static void main(String[] args) {
 		LOG.info(processPayment(new OrderData.Crypto("0x123...abc", "BTC")));
 		LOG.info(processPayment(new OrderData.BankTransfer("ES9121000418450200051332")));

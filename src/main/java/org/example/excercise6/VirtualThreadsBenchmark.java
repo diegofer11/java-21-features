@@ -13,7 +13,7 @@ import org.example.model.ThreadData;
 
 import com.google.common.base.Stopwatch;
 
-public class HilosVirtuales {
+public class VirtualThreadsBenchmark {
 
 	/**
 	 * Implementa un programa que simule la ejecución masiva de procesamiento de datos en paralelo para comparar el

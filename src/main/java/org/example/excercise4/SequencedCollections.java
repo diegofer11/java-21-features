@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
 
-public class NuevasColecciones {
+public class SequencedCollections {
 
 	/**
 	 * Java 21 introdujo las interfaces SequencedCollection, SequencedSet y SequencedMap para resolver la inconsistencia
