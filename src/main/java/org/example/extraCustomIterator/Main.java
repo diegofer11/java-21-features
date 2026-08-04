@@ -1,8 +1,8 @@
 package org.example.extraCustomIterator;
 
-import static org.example.utils.OrderUtils.LOG;
-
 import java.util.List;
+
+import org.example.utils.LoggerUtils;
 
 public class Main {
 	public static void main(String[] args) {
@@ -26,6 +26,6 @@ public class Main {
 			iterator.next();
 			count++;
 		}
-		LOG.info(caseName + " - odd numbers = " + count);
+		LoggerUtils.info("CustomOddIterator", "main", caseName + " - odd numbers = " + count);
 	}
 }

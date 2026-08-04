@@ -1,7 +1,6 @@
 package org.example.excercise2;
 
 import static org.example.utils.OrderUtils.GSON;
-import static org.example.utils.OrderUtils.LOG;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,6 +8,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
+import org.example.utils.LoggerUtils;
 
 public class TopVipProducts {
 
@@ -32,7 +32,7 @@ public class TopVipProducts {
 						OrderData.OrderItem::product,
 						Collectors.summingInt(OrderData.OrderItem::quantity)));
 
-		LOG.info(GSON.toJson(result));
+		LoggerUtils.info("TopVipProducts", "main", GSON.toJson(result));
 
 		final List<String> masVendidos = result
 				.entrySet()
@@ -42,7 +42,7 @@ public class TopVipProducts {
 				.limit(3)
 				.toList();
 
-		LOG.info("top 3 productos más comprados por clientes VIP: " + masVendidos);
+		LoggerUtils.info("TopVipProducts", "main", "top 3 productos más comprados por clientes VIP: " + masVendidos);
 	}
 
 	private static List<OrderData.Customer> buildCustomers() {
@@ -73,7 +73,11 @@ public class TopVipProducts {
 				List.of(monitor, laptop),
 				OrderData.OrderStatus.DELIVERED);
 
-		OrderData.Customer vip1 = new OrderData.Customer("C1", "Ana", OrderData.CustomerType.VIP, List.of(order1, order2));
+		OrderData.Customer vip1 = new OrderData.Customer(
+				"C1",
+				"Ana",
+				OrderData.CustomerType.VIP,
+				List.of(order1, order2));
 		OrderData.Customer vip2 = new OrderData.Customer("C2", "Carlos", OrderData.CustomerType.VIP, List.of(order4));
 		OrderData.Customer regular = new OrderData.Customer(
 				"C3",

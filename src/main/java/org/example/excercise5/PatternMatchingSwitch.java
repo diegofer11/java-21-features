@@ -1,14 +1,16 @@
 package org.example.excercise5;
 
-import static org.example.utils.OrderUtils.LOG;
-
 import org.example.model.OrderData;
+import org.example.utils.LoggerUtils;
 
 public class PatternMatchingSwitch {
 	public static void main(String[] args) {
-		LOG.info(processPayment(new OrderData.Crypto("0x123...abc", "BTC")));
-		LOG.info(processPayment(new OrderData.BankTransfer("ES9121000418450200051332")));
-		LOG.info(processPayment(null));
+		LoggerUtils.info("PatternMatchingSwitch", "main", processPayment(new OrderData.Crypto("0x123...abc", "BTC")));
+		LoggerUtils.info(
+				"PatternMatchingSwitch",
+				"main",
+				processPayment(new OrderData.BankTransfer("ES9121000418450200051332")));
+		LoggerUtils.info("PatternMatchingSwitch", "main", null);
 	}
 
 	private static String processPayment(OrderData.PaymentMethod payment) {

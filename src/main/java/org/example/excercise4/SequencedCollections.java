@@ -1,6 +1,5 @@
 package org.example.excercise4;
 
-import static org.example.utils.OrderUtils.LOG;
 import static org.example.utils.OrderUtils.buildCustomersForExercise3;
 
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.SequencedCollection;
 import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
+import org.example.utils.LoggerUtils;
 
 public class SequencedCollections {
 
@@ -17,6 +17,7 @@ public class SequencedCollections {
 	 * etc.).
 	 *
 	 * @param args
+	 * 		arguments
 	 */
 	public static void main(String[] args) {
 		List<OrderData.Customer> customers = buildCustomersForExercise3();
@@ -26,16 +27,17 @@ public class SequencedCollections {
 				.map(OrderData.Customer::name)
 				.collect(Collectors.toList());
 
-		LOG.info("Colección conservando el orden:::" + nombres);
-
-		LOG.info("primer cliente:::" + nombres.getFirst());
-		LOG.info("último cliente:::" + nombres.getLast());
-
-		LOG.info("lista invertida:::" + nombres.reversed());
+		LoggerUtils.info(
+				"SequencedCollections",
+				"main",
+				"Resultado:::" + "Colección conservando el orden:::" + nombres);
+		LoggerUtils.info("SequencedCollections", "main", "primer cliente:::" + nombres.getFirst());
+		LoggerUtils.info("SequencedCollections", "main", "último cliente:::" + nombres.getLast());
+		LoggerUtils.info("SequencedCollections", "main", "lista invertida:::" + nombres.reversed());
 
 		nombres.addFirst("Diego");
 		nombres.addLast("Valentina");
 
-		LOG.info("Colección conservando el orden:::" + nombres);
+		LoggerUtils.info("SequencedCollections", "main", "Colección conservando el orden:::" + nombres);
 	}
 }

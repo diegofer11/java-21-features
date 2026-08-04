@@ -1,14 +1,12 @@
 package org.example.excercise7;
 
-import static org.example.utils.OrderUtils.LOG;
-
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
-import java.util.logging.Level;
 
 import org.example.model.HedgedRequestData;
+import org.example.utils.LoggerUtils;
 
 public class HedgedRequests {
 
@@ -34,21 +32,24 @@ public class HedgedRequests {
 				.toList();
 
 		try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
-			LOG.info("🚀 Disparando peticiones concurrentes a los nodos..." + nodes.size());
+			LoggerUtils.info(
+					"HedgedRequests",
+					"main",
+					"🚀 Disparando peticiones concurrentes a los nodos..." + nodes.size());
 
 			HedgedRequestData.QuoteResult fastestResponse = executor.invokeAny(tasks);
 
-			LOG.info("Ganador: " + fastestResponse);
+			LoggerUtils.info("HedgedRequests", "main", "Ganador: " + fastestResponse);
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
-			LOG.log(Level.SEVERE, "El hilo principal fue interrumpido", e);
+			LoggerUtils.severe("HedgedRequests", "main", "El hilo principal fue interrumpido " + e);
 		} catch (ExecutionException e) {
-			LOG.log(Level.SEVERE, "Todos los nodos fallaron al responder", e);
+			LoggerUtils.severe("HedgedRequests", "main", "Todos los nodos fallaron al responder " + e);
 		}
 	}
 
 	private static HedgedRequestData.QuoteResult fetchPrice(HedgedRequestData.ServerNode node) throws InterruptedException {
-		LOG.info("Iniciando consulta en: " + node.name());
+		LoggerUtils.info("HedgedRequests", "main", "Iniciando consulta en: " + node.name());
 
 		try {
 			if (node.shouldFail()) {
@@ -61,7 +62,7 @@ public class HedgedRequests {
 			return new HedgedRequestData.QuoteResult(node.name(), simulatedPrice, node.latencyMs());
 
 		} catch (InterruptedException e) {
-			LOG.log(Level.WARNING, "🛑 Petición cancelada/interrumpida en: " + node.name());
+			LoggerUtils.warning("HedgedRequests", "main", "🛑 Petición cancelada/interrumpida en: " + node.name());
 			throw e;
 		}
 	}

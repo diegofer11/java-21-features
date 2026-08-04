@@ -1,6 +1,5 @@
 package org.example.excercise6;
 
-import static org.example.utils.OrderUtils.LOG;
 import static org.example.utils.ThreadUtils.generateTasks;
 import static org.example.utils.ThreadUtils.processTask;
 
@@ -10,6 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.example.model.ThreadData;
+import org.example.utils.LoggerUtils;
 
 import com.google.common.base.Stopwatch;
 
@@ -25,7 +25,8 @@ public class VirtualThreadsBenchmark {
 	 * <li>Mide el tiempo de inicio y fin de cada bloque y muestra por consola la comparativa en milisegundos.</li>
 	 * </ul>
 	 *
-	 * @param args arguments
+	 * @param args
+	 * 		arguments
 	 */
 	public static void main(String[] args) {
 		List<ThreadData.TaskData> tasks = generateTasks(10_000);
@@ -40,12 +41,12 @@ public class VirtualThreadsBenchmark {
 		}
 
 		watch.stop();
-		LOG.info("Time using virtual threads: " + watch); //  Time: 218.3 ms
+		LoggerUtils.info("VirtualThreadsBenchmark", "main", "Time using virtual threads: " + watch); //  Time: 218.3 ms
 
 		List<ThreadData.ProcessResult> results = futures.stream().map(Future::resultNow).toList();
-		LOG.info("Total de tareas ejecutadas: " + results.size());
-		LOG.info("Primer elemento: " + results.getFirst());
-		LOG.info("Último elemento: " + results.getLast());
+		LoggerUtils.info("VirtualThreadsBenchmark", "main", "Total de tareas ejecutadas: " + results.size());
+		LoggerUtils.info("VirtualThreadsBenchmark", "main", "Primer elemento: " + results.getFirst());
+		LoggerUtils.info("VirtualThreadsBenchmark", "main", "Último elemento: " + results.getLast());
 
 		watch.reset();
 		watch.start();
@@ -57,6 +58,9 @@ public class VirtualThreadsBenchmark {
 		}
 
 		watch.stop();
-		LOG.info("Time using fixed thread pool using 10 threads: " + watch); //  Time: 15.65 s
+		LoggerUtils.info(
+				"VirtualThreadsBenchmark",
+				"main",
+				"Time using fixed thread pool using 10 threads: " + watch);  //  Time: 15.65 s
 	}
 }

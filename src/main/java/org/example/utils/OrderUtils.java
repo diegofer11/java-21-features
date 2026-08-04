@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
 
 import org.example.model.OrderData;
 
@@ -13,7 +12,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class OrderUtils {
-	public static final Logger LOG = Logger.getLogger("logger");
 	public static final Gson GSON = new GsonBuilder().registerTypeAdapter(
 			LocalDate.class,
 			(com.google.gson.JsonSerializer<LocalDate>) (src, typeOfSrc, context) -> new com.google.gson.JsonPrimitive(

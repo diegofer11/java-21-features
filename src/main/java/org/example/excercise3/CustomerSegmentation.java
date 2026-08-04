@@ -1,7 +1,5 @@
 package org.example.excercise3;
 
-import static org.example.utils.OrderUtils.GSON;
-import static org.example.utils.OrderUtils.LOG;
 import static org.example.utils.OrderUtils.buildCustomersForExercise3;
 
 import java.util.List;
@@ -9,6 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.example.model.OrderData;
+import org.example.utils.LoggerUtils;
 
 public class CustomerSegmentation {
 
@@ -20,6 +19,7 @@ public class CustomerSegmentation {
 	 * cliente tiene órdenes canceladas, te servirá el método anyMatch(...) dentro del predicado.
 	 *
 	 * @param args
+	 * 		arguments
 	 */
 	public static void main(String[] args) {
 		List<OrderData.Customer> customers = buildCustomersForExercise3();
@@ -33,7 +33,6 @@ public class CustomerSegmentation {
 								.stream()
 								.anyMatch(o -> o.status() == OrderData.OrderStatus.CANCELLED))));
 
-		LOG.info(GSON.toJson("Resultado:::" + result));
-
+		LoggerUtils.info("CustomerSegmentation", "main", "Resultado:::" + result);
 	}
 }
