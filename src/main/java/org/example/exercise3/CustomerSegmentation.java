@@ -1,4 +1,4 @@
-package org.example.excercise3;
+package org.example.exercise3;
 
 import static org.example.utils.OrderUtils.buildCustomersForExercise3;
 

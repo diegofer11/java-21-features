@@ -1,4 +1,4 @@
-package org.example.excercise1;
+package org.example.exercise1;
 
 import static org.example.utils.OrderUtils.GSON;
 import static org.example.utils.OrderUtils.buildOrders;

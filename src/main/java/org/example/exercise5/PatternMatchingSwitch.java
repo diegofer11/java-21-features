@@ -1,4 +1,4 @@
-package org.example.excercise5;
+package org.example.exercise5;
 
 import org.example.model.OrderData;
 import org.example.utils.LoggerUtils;

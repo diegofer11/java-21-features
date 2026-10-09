@@ -1,4 +1,4 @@
-package org.example.excercise6;
+package org.example.exercise6;
 
 import static org.example.utils.ThreadUtils.generateTasks;
 import static org.example.utils.ThreadUtils.processTask;

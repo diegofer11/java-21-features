@@ -1,4 +1,4 @@
-package org.example.excercise7;
+package org.example.exercise7;
 
 import java.util.List;
 import java.util.concurrent.Callable;
