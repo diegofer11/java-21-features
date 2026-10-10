@@ -17,6 +17,15 @@ public class Main {
 		runTestCase("testCase3", testCase3); // testCase3 - odd numbers = 3
 		runTestCase("testCase4", testCase4); // testCase4 - odd numbers = 0
 		runTestCase("testCase5", testCase5); // testCase5 - odd numbers = 1
+
+
+		CustomCollection<String> names = new CustomCollection<>();
+
+		names.add("Ana");
+		names.add("Luis");
+		names.add("Marta");
+
+		names.forEach(n -> LoggerUtils.info("CustomOddIterator", "main", "item: " + n));
 	}
 
 	private static void runTestCase(final String caseName, final List<Integer> list) {
