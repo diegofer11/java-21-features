@@ -1,11 +1,11 @@
-package org.example.extraCustomIterator;
-
-import org.jspecify.annotations.NonNull;
+package dev.playground.collections.iterator;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+
+import org.jspecify.annotations.NonNull;
 
 public class CustomCollection<E> implements Iterable<E> {
 
